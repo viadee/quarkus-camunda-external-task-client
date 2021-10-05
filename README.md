@@ -1,0 +1,1 @@
+# quarkus-camunda-external-task-client
