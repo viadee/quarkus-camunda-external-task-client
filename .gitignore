@@ -1,0 +1,36 @@
+### Java ###
+*.class
+*.jar
+*.war
+*.ear
+
+### MAVEN ###
+target/
+log/
+# Avoid ignoring Maven wrapper jar file (.jar files are ignored!)
+!/.mvn/wrapper/maven-wrapper.jar 
+
+### Eclipse ###
+.classpath
+.project
+.settings/
+.factorypath
+
+### STS (Spring Tool Suite) ###
+.springBeans
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.iws
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Mac
+.DS_Store
