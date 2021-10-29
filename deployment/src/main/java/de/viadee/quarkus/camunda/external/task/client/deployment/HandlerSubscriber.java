@@ -6,7 +6,9 @@ import de.viadee.camunda.extension.ExternalTaskSubscription;
 import de.viadee.camunda.extension.HandlerSubscriptionRecorder;
 import io.quarkus.arc.Arc;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
+import io.quarkus.arc.deployment.BeanDiscoveryFinishedBuildItem;
 import io.quarkus.arc.deployment.SyntheticBeanBuildItem;
+import io.quarkus.arc.processor.BeanInfo;
 import io.quarkus.builder.item.SimpleBuildItem;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
@@ -20,37 +22,36 @@ import org.camunda.bpm.client.impl.ExternalTaskClientBuilderImpl;
 import org.camunda.bpm.client.task.ExternalTaskHandler;
 import org.jboss.jandex.DotName;
 
+import javax.enterprise.inject.spi.CDI;
 import javax.inject.Singleton;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Supplier;
 
 import static io.quarkus.deployment.annotations.ExecutionTime.RUNTIME_INIT;
+import static java.util.stream.Collectors.toList;
 
 public class HandlerSubscriber {
 
-
-    // wir brauchen einen/mehrere Handler in einem BuildItem
-    // wir brauchen ein BuildItem, dass den ExternalTaskClient beinhaltet
-    // todo: add dependency
-    //  @Record(RUNTIME_INIT)
-    // @BuildStep
-    //public void subscribeHandler(HandlerSubscriptionRecorder handlerSubscriptionRecorder, ExternalTaskClientBuildItem externalTaskClientBuildItem) {
-    //    handlerSubscriptionRecorder.registerHandler();
-    // }
-
-
     @BuildStep
-    public void subscribeHandler(HandlerSubscriptionRecorder recorder, CombinedIndexBuildItem combindeIndex) {
-        var annotations = combindeIndex
-                .getIndex()
-                .getAnnotations(DotName.createSimple(ExternalTaskSubscription.class.getName()));
-        for () {
-            recorder.registerHandler();
-        }
+    public void subscribeHandler(HandlerSubscriptionRecorder recorder,
+                                 BeanDiscoveryFinishedBuildItem beanDiscovery) {
+
+        CDI.current().select(ExternalTaskHandler.class).stream().forEach(
+                handler -> {
+                    var annotation = Arrays.stream(handler.getClass().getAnnotations())
+                            .filter(a -> a instanceof ExternalTaskSubscription)
+                            .findFirst();
+                    if (annotation.isEmpty()) {
+                        return;
+                    }
+                    var castAnnotation =  (ExternalTaskSubscription) annotation.get();
+                    recorder.registerHandler(handler,castAnnotation.topicName());
+                }
+        );
     }
 
-    public HandlerSubscriber() {
-    }
 
     @Record(RUNTIME_INIT)
     @BuildStep
