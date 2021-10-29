@@ -9,8 +9,6 @@ public class ClientConfiguration {
 
     private String workerID;
 
-    private String topic;
-
     public String getBaseUrl() {
         return baseUrl;
     }
@@ -27,11 +25,4 @@ public class ClientConfiguration {
         this.workerID = workerID;
     }
 
-    public String getTopic() {
-        return topic;
-    }
-
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
 }
