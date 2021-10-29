@@ -9,21 +9,20 @@ import javax.inject.Inject;
 import java.util.function.Supplier;
 
 @Recorder
-public class ExternalTaskClientCreationRecorder implements Supplier<ExternalTaskClient> {
+public class ExternalTaskClientCreationRecorder{
 
-    @Inject
-    ClientConfiguration configuration;
+   public Supplier<ExternalTaskClient> getSupplier(ClientConfiguration configuration) {
+       return () -> {
+           var builder = new ExternalTaskClientBuilderImpl();
+           return builder
+                   .baseUrl(configuration.getBaseUrl())
+                   .workerId(configuration.getWorkerID())
+                   .lockDuration(13)
+                   .maxTasks(10)
+                   .build();
+       };
+   }
 
-    @Produces
-    public ExternalTaskClient get() {
-        var builder = new ExternalTaskClientBuilderImpl();
-        return builder
-                .baseUrl(configuration.getBaseUrl())
-                .workerId(configuration.getWorkerID())
-                .lockDuration(13)
-                .maxTasks(10)
-                .build();
-    }
 
 
 }
