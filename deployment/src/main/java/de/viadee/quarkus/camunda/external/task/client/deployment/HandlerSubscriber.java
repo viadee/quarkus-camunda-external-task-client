@@ -43,6 +43,8 @@ public class HandlerSubscriber {
         }
     }
 
+    public HandlerSubscriber() {
+    }
 
     @Record(RUNTIME_INIT)
     @BuildStep
