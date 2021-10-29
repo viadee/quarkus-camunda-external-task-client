@@ -11,6 +11,7 @@ public class ClientConfiguration {
 
     public String workerID;
 
+    private String topic;
 
     public String getBaseUrl() {
         return baseUrl;
