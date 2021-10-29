@@ -6,15 +6,16 @@ import org.camunda.bpm.client.impl.ExternalTaskClientBuilderImpl;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
+import java.util.function.Supplier;
 
 @Recorder
-public class ExternalTaskClientCreationRecorder {
+public class ExternalTaskClientCreationRecorder implements Supplier<ExternalTaskClient> {
 
     @Inject
     ClientConfiguration configuration;
 
     @Produces
-    public ExternalTaskClient createClient() {
+    public ExternalTaskClient get() {
         var builder = new ExternalTaskClientBuilderImpl();
         return builder
                 .baseUrl(configuration.getBaseUrl())
@@ -23,4 +24,6 @@ public class ExternalTaskClientCreationRecorder {
                 .maxTasks(10)
                 .build();
     }
+
+
 }

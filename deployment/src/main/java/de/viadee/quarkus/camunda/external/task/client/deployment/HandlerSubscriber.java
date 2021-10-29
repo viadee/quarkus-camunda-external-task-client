@@ -12,13 +12,17 @@ import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.annotations.ExecutionTime;
 import io.quarkus.deployment.annotations.Record;
+import io.quarkus.deployment.builditem.CombinedIndexBuildItem;
 import io.quarkus.deployment.builditem.ConfigurationBuildItem;
 import io.quarkus.runtime.annotations.Recorder;
 import org.camunda.bpm.client.ExternalTaskClient;
 import org.camunda.bpm.client.impl.ExternalTaskClientBuilderImpl;
 import org.camunda.bpm.client.task.ExternalTaskHandler;
+import org.jboss.jandex.DotName;
 
 import javax.inject.Singleton;
+
+import java.util.function.Supplier;
 
 import static io.quarkus.deployment.annotations.ExecutionTime.RUNTIME_INIT;
 
@@ -36,9 +40,11 @@ public class HandlerSubscriber {
 
 
     @BuildStep
-    public void subscribeHandler(HandlerSubscriptionRecorder recorder) {
-        Arc.container().select(ExternalTaskHandler.class, ExternalTaskSubscription.class)
-        for() {
+    public void subscribeHandler(HandlerSubscriptionRecorder recorder, CombinedIndexBuildItem combindeIndex) {
+        var annotations = combindeIndex
+                .getIndex()
+                .getAnnotations(DotName.createSimple(ExternalTaskSubscription.class.getName()));
+        for () {
             recorder.registerHandler();
         }
     }
@@ -54,7 +60,7 @@ public class HandlerSubscriber {
                         .scope(Singleton.class)
                         .setRuntimeInit()
                         .unremovable()
-                        .supplier(recorder::createClient)
+                        .supplier(recorder)
                         .done()
         );
     }
