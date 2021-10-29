@@ -4,10 +4,15 @@ import io.quarkus.runtime.annotations.Recorder;
 import org.camunda.bpm.client.ExternalTaskClient;
 import org.camunda.bpm.client.task.ExternalTaskHandler;
 
+import javax.inject.Inject;
+
 @Recorder
 public class HandlerSubscriptionRecorder {
 
-    public void registerHandler(ExternalTaskClient externalTaskClient, ExternalTaskHandler externalTaskHandler, String topic) {
+    @Inject
+    ExternalTaskClient externalTaskClient;
+
+    public void registerHandler(ExternalTaskHandler externalTaskHandler, String topic) {
         externalTaskClient.subscribe(topic).handler(externalTaskHandler).open();
     }
 
