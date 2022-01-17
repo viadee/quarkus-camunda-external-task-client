@@ -11,12 +11,19 @@ import java.util.function.Supplier;
 @Recorder
 public class ExternalTaskClientCreationRecorder{
 
-   public Supplier<ExternalTaskClient> getSupplier(ClientConfiguration configuration) {
+//    private ClientConfiguration clientConfiguration;
+//
+//    @Inject
+//    public ExternalTaskClientCreationRecorder (ClientConfiguration config) {
+//        this.clientConfiguration = config;
+//    }
+
+   public Supplier<ExternalTaskClient> getSupplier(ClientConfiguration config) {
        return () -> {
            var builder = new ExternalTaskClientBuilderImpl();
            return builder
-                   .baseUrl(configuration.getBaseUrl())
-                   .workerId(configuration.getWorkerID())
+                   .baseUrl(config.getBaseUrl())
+                   .workerId("configuration.getWorkerID()")
                    .lockDuration(13)
                    .maxTasks(10)
                    .build();
