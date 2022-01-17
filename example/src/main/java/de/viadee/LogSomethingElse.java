@@ -9,15 +9,15 @@ import org.camunda.bpm.client.task.ExternalTaskService;
 import javax.enterprise.context.ApplicationScoped;
 import java.util.logging.Logger;
 
-@ExternalTaskSubscription(topicName = "LogOnConsole")
+@ExternalTaskSubscription(topicName = "LogSomethingElse")
 @ApplicationScoped
-public class LogOnConsoleHandler implements ExternalTaskHandler {
+public class LogSomethingElse implements ExternalTaskHandler {
 
-    private static final Logger LOG = Logger.getLogger(LogOnConsoleHandler.class.getName());
+    private static final Logger LOG = Logger.getLogger(LogSomethingElse.class.getName());
 
     @Override
     public void execute(ExternalTask externalTask, ExternalTaskService externalTaskService) {
-        LOG.info("Das ist ein Quarkus-ExternalTaskHandler");
+        LOG.info("Wir loggen was anderes");
         externalTaskService.complete(externalTask);
     }
 }

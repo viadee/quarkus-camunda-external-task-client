@@ -11,12 +11,6 @@ import java.util.function.Supplier;
 @Recorder
 public class ExternalTaskClientCreationRecorder{
 
-//    private ClientConfiguration clientConfiguration;
-//
-//    @Inject
-//    public ExternalTaskClientCreationRecorder (ClientConfiguration config) {
-//        this.clientConfiguration = config;
-//    }
 
    public Supplier<ExternalTaskClient> getSupplier(ClientConfiguration config) {
        return () -> {

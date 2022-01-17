@@ -19,8 +19,6 @@ public class HandlerSubscriber {
     @Inject
     ExternalTaskClient externalTaskClient;
 
-
-
     public void registerHandlers(@Observes StartupEvent ev) {
         Arc.container().select(ExternalTaskHandler.class).handles().forEach(instanceHandle -> {
             var annotation = Arrays.stream(instanceHandle.getBean().getBeanClass().getAnnotations())
