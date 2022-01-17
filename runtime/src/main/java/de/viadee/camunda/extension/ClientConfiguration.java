@@ -2,7 +2,6 @@ package de.viadee.camunda.extension;
 
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
-import org.eclipse.microprofile.config.inject.ConfigProperties;
 
 @ConfigRoot(phase = ConfigPhase.RUN_TIME, prefix = "de.viadee.camunda")
 public class ClientConfiguration {
@@ -11,7 +10,7 @@ public class ClientConfiguration {
 
     public String workerID;
 
-    private String topic;
+    public String topic;
 
     public String getBaseUrl() {
         return baseUrl;
@@ -29,4 +28,11 @@ public class ClientConfiguration {
         this.workerID = workerID;
     }
 
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
 }

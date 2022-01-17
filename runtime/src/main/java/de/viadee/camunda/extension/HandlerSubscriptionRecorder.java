@@ -31,7 +31,7 @@ public class HandlerSubscriptionRecorder {
             }
             var castAnnotation =  (ExternalTaskSubscription) annotation.get();
 
-            this.registerHandler(instanceHandle.get(),castAnnotation.topicName());
+            this.registerHandler(instanceHandle.get(), castAnnotation.topicName());
 
         });
 
