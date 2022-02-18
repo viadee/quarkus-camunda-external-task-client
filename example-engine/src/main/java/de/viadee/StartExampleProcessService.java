@@ -1,5 +1,6 @@
 package de.viadee;
 
+import io.quarkus.logging.Log;
 import org.camunda.bpm.engine.RuntimeService;
 
 import javax.inject.Inject;
@@ -11,7 +12,8 @@ import javax.ws.rs.core.MediaType;
 @Path("/start-process")
 public class StartExampleProcessService {
 
-    private static final String PROCESS_NAME = "MinimalCamundaEngine";
+    private static final String PROCESS_NAME = "quarkus-camunda-external-task-example";
+
 
     @Inject
     public RuntimeService runtimeService;
