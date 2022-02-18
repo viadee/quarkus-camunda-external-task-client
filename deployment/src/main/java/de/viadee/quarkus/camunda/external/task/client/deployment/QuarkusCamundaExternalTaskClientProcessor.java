@@ -43,7 +43,7 @@ class QuarkusCamundaExternalTaskClientProcessor {
     }
 
     @BuildStep
-    public UnremovableBeanBuildItem removelExclusion() {
+    public UnremovableBeanBuildItem removalExclusion() {
         return new UnremovableBeanBuildItem(
                 new UnremovableBeanBuildItem.BeanClassAnnotationExclusion(
                         HANDLER_ANNOTATION_DOT_NAME));
