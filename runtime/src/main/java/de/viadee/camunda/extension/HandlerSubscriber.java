@@ -27,19 +27,28 @@ public class HandlerSubscriber {
             if (annotation.isEmpty()) {
                 return;
             }
-            var castAnnotation =  (ExternalTaskSubscription) annotation.get();
+            var castAnnotation = (ExternalTaskSubscription) annotation.get();
 
-            this.registerHandler(instanceHandle.get(), castAnnotation.topicName());
+            this.registerHandler(instanceHandle.get(), castAnnotation);
 
         });
 
     }
 
-    private void registerHandler(ExternalTaskHandler externalTaskHandler, String topic) {
-        externalTaskClient.subscribe(topic)
+    private void registerHandler(ExternalTaskHandler externalTaskHandler, ExternalTaskSubscription subscription) {
+        externalTaskClient.subscribe(subscription.topicName())
+                .variables(subscription.variableNames())
+                .localVariables(subscription.localVariables())
+                .businessKey(subscription.businessKey())
+                .processDefinitionId(subscription.processDefinitionId())
+                .processDefinitionIdIn(subscription.processDefinitionIdIn())
+                .processDefinitionKey(subscription.processDefinitionKey())
+                .processDefinitionKeyIn(subscription.processDefinitionKeyIn())
+                .processDefinitionVersionTag(subscription.processDefinitionVersionTag())
+                .tenantIdIn(subscription.tenantIdIn())
+                .includeExtensionProperties(subscription.includeExtensionProperties())
                 .handler(externalTaskHandler).open();
     }
-
 
 
 }

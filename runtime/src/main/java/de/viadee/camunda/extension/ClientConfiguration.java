@@ -7,16 +7,9 @@ import io.quarkus.runtime.annotations.ConfigRoot;
 @ConfigRoot(phase = ConfigPhase.RUN_TIME, prefix = "de.viadee.camunda")
 public class ClientConfiguration {
 
-
-    /**
-     * Enable logging to a file.
-     */
     @ConfigItem
     public String baseUrl;
 
-    /**
-     * asdf
-     */
 
     @ConfigItem(defaultValue = "some-id")
     public String workerID;
