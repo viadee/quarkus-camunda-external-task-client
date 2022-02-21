@@ -22,7 +22,9 @@ public class StartExampleProcessService {
     @Produces(MediaType.TEXT_PLAIN)
     public String startProcessInstance() {
         String processInstanceId = runtimeService.startProcessInstanceByKey(PROCESS_NAME).getId();
-        return "Process instance with id " + processInstanceId + " started!";
+        String message = "Process instance with id " + processInstanceId + " started!";
+        Log.info(message);
+        return message;
     }
 
 }
