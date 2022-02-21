@@ -2,7 +2,6 @@ package de.viadee.camunda.api.responses;
 
 import de.viadee.camunda.api.pojos.Variable;
 
-import java.time.LocalDateTime;
 import java.util.Map;
 
 public class LockedExternalTaskResponse {
@@ -10,7 +9,7 @@ public class LockedExternalTaskResponse {
     public String id;
     public String topicName;
     public String workerId;
-    public LocalDateTime lockExpirationTime;
+    public String lockExpirationTime;
     public String processInstanceId;
     public String executionId;
     public String activityId;
@@ -42,7 +41,7 @@ public class LockedExternalTaskResponse {
         this.workerId = workerId;
     }
 
-    public void setLockExpirationTime(LocalDateTime lockExpirationTime) {
+    public void setLockExpirationTime(String lockExpirationTime) {
         this.lockExpirationTime = lockExpirationTime;
     }
 

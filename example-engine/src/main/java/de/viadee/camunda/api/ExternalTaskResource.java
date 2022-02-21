@@ -61,7 +61,6 @@ public class ExternalTaskResource {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
         externalTaskService.complete(id, request.getWorkerId(), variables);
-
         return Response.ok().build();
     }
 
@@ -71,6 +70,7 @@ public class ExternalTaskResource {
     @Produces(MediaType.TEXT_PLAIN)
     public Response unlock(@PathParam("id") String id) {
         Log.info("Called `unlock` for id: " + id);
+        externalTaskService.unlock(id);
         return Response.status(204).build();
     }
 }
