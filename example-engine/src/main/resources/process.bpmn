@@ -5,9 +5,6 @@
       <bpmn:outgoing>SequenceFlow1</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:endEvent id="EndEvent" name="Process&#10;ended">
-      <bpmn:extensionElements>
-        <camunda:executionListener delegateExpression="${processCompletedListener}" event="start" />
-      </bpmn:extensionElements>
       <bpmn:incoming>Flow_0glltau</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow1" sourceRef="StartEvent" targetRef="ServiceTask_Logger" />

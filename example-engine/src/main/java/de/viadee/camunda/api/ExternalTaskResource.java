@@ -1,5 +1,6 @@
 package de.viadee.camunda.api;
 
+import de.viadee.camunda.api.mapper.LockedExternalTaskMapper;
 import de.viadee.camunda.api.requests.CompleteRequest;
 import de.viadee.camunda.api.requests.FetchAndLockRequest;
 import de.viadee.camunda.api.responses.LockedExternalTaskResponse;
@@ -49,9 +50,8 @@ public class ExternalTaskResource {
         return responses;
     }
 
-
     @POST
-    @Path("/external-task/{id}/complete")
+    @Path("/{id}/complete")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response complete(@PathParam("id") String id, CompleteRequest request) {

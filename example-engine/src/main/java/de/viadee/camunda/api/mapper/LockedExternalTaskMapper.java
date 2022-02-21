@@ -1,4 +1,4 @@
-package de.viadee.camunda.api;
+package de.viadee.camunda.api.mapper;
 
 import de.viadee.camunda.api.responses.LockedExternalTaskResponse;
 import org.camunda.bpm.engine.externaltask.LockedExternalTask;
