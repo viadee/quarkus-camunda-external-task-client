@@ -2,18 +2,23 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>de.viadee</groupId>
-  <artifactId>quarkus-camunda-external-task-example-engine</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <parent>
+    <artifactId>quarkus-camunda-external-task-client-example</artifactId>
+    <groupId>de.viadee</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>quarkus-camunda-external-task-client-example-process</artifactId>
+  <name>Quarkus Camunda External Task Client - Process</name>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <failsafe.useModulePath>false</failsafe.useModulePath>
-    <maven.compiler.release>11</maven.compiler.release>
+    <maven.compiler.parameters>true</maven.compiler.parameters>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.7.1.Final</quarkus.platform.version>
+    <quarkus.platform.version>2.3.0.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
   </properties>
   <dependencyManagement>
@@ -37,17 +42,9 @@
       <artifactId>quarkus-resteasy</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.camunda.bpm.quarkus</groupId>
-      <artifactId>camunda-bpm-quarkus-engine</artifactId>
-      <version>7.16.0</version>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-jdbc-h2</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jsonb</artifactId>
+      <groupId>de.viadee</groupId>
+      <artifactId>quarkus-camunda-external-task-client</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -81,9 +78,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${compiler-plugin.version}</version>
         <configuration>
-          <compilerArgs>
-            <arg>-parameters</arg>
-          </compilerArgs>
+          <parameters>${maven.compiler.parameters}</parameters>
         </configuration>
       </plugin>
       <plugin>
