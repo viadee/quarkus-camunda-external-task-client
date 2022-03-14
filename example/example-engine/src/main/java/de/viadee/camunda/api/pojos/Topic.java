@@ -6,7 +6,7 @@ public class Topic {
 
     private String topicName;
 
-    private Integer lockDuration;
+    private Long lockDuration;
 
     private List<String> variables;
 
@@ -20,11 +20,11 @@ public class Topic {
         this.topicName = topicName;
     }
 
-    public Integer getLockDuration() {
+    public Long getLockDuration() {
         return lockDuration;
     }
 
-    public void setLockDuration(Integer lockDuration) {
+    public void setLockDuration(Long lockDuration) {
         this.lockDuration = lockDuration;
     }
 
