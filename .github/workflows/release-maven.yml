@@ -1,8 +1,5 @@
 name: Release Artifact
 on:
-  #    TODO: remove, only experimantal!!
-  push:
-    branches: [feat/add-deployment ]
   release:
     types: [created]
   workflow_dispatch:
