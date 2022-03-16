@@ -2,9 +2,9 @@ name: Build Maven
 
 on:
   push:
-    branches: [ development, master, feat/add-deployment ]
+    branches: [ development, main ]
   pull_request:
-    branches: [ development, master ]
+    branches: [ development, main ]
 
 jobs:
   build:
