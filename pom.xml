@@ -1,63 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>de.viadee</groupId>
-    <artifactId>quarkus-camunda-external-task-client-parent</artifactId>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.viadee</groupId>
+  <artifactId>quarkus-camunda-external-task-client-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-    <version>1.0.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>Quarkus Camunda External Task Client - Parent</name>
+  <name>Quarkus Camunda External Task Client</name>
+    <description>A quarkus extension providing support for Camunda's external task client</description>
+
+
+  <url>https://github.com/viadee/quarkus-camunda-external-task-client</url>
+
+  <licenses>
+    <license>
+      <name>BSD-3 Clause</name>
+      <url>https://opensource.org/licenses/BSD-3-Clause</url>
+    </license>
+  </licenses>
+
+  <organization>
+    <name>viadee Unternehmensberatung AG</name>
+    <url>https://www.viadee.de</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <name>Christoph Schönnenbeck</name>
+      <email>Christoph.Schoennenbeck@viadee.de</email>
+      <organization>viadee Unternehmensberatung AG</organization>
+      <organizationUrl>https://www.viadee.de</organizationUrl>
+    </developer>
+    <developer>
+      <name>Alexander Schultenkemper</name>
+      <email>Alexander.Schultenkemper@viadee.de</email>
+      <organization>viadee Unternehmensberatung AG</organization>
+      <organizationUrl>https://www.viadee.de</organizationUrl>
+    </developer>
+    <developer>
+      <name>Matthias Kutz</name>
+      <email>Matthias.Kutz@viadee.de</email>
+      <organization>viadee Unternehmensberatung AG</organization>
+      <organizationUrl>https://www.viadee.de</organizationUrl>
+    </developer>
+    <developer>
+      <name>Pascal Meier</name>
+      <email>Pascal.Meier@viadee.de</email>
+      <organization>viadee Unternehmensberatung AG</organization>
+      <organizationUrl>https://www.viadee.de</organizationUrl>
+    </developer>
+    <developer>
+      <name>Dave Kaufmann</name>
+      <email>Dave.Kaufmann@viadee.de</email>
+      <organization>viadee Unternehmensberatung AG</organization>
+      <organizationUrl>https://www.viadee.de</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git://https://github.com/viadee/quarkus-camunda-external-task-client.git</connection>
+    <developerConnection>scm:git:ssh://github.com:viadee/quarkus-camunda-external-task-client.git</developerConnection>
+    <url>https://github.com/viadee/quarkus-camunda-external-task-client/tree/main</url>
+  </scm>
+
+
     <modules>
         <module>deployment</module>
         <module>runtime</module>
     </modules>
-    <description>A quarkus extension providing support for Camunda's external task client</description>
 
-    <licenses>
-        <license>
-            <name>BSD-3 Clause</name>
-            <url>https://opensource.org/licenses/BSD-3-Clause</url>
-        </license>
-    </licenses>
+  <properties>
+    <compiler-plugin.version>3.8.1</compiler-plugin.version>
+    <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+    <failsafe-plugin.version>${surefire-plugin.version}</failsafe-plugin.version>
+    <maven.compiler.parameters>true</maven.compiler.parameters>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <quarkus.version>2.3.0.Final</quarkus.version>
+    <camunda.version>7.16.0</camunda.version>
+      <gpg-plugin.version>1.6</gpg-plugin.version>
 
-    <organization>
-        <name>viadee Unternehmensberatung AG</name>
-        <url>https://www.viadee.de</url>
-    </organization>
-
-    <scm>
-        <connection>scm:git:git://https://github.com/viadee/quarkus-camunda-external-task-client.git</connection>
-        <developerConnection>scm:git:ssh://github.com:viadee/quarkus-camunda-external-task-client.git
-        </developerConnection>
-        <url>https://github.com/viadee/quarkus-camunda-external-task-client/tree/main</url>
-    </scm>
-
-
-    <properties>
-        <compiler-plugin.version>3.8.1</compiler-plugin.version>
-        <failsafe-plugin.version>${surefire-plugin.version}</failsafe-plugin.version>
-        <maven.compiler.parameters>true</maven.compiler.parameters>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <quarkus.version>2.3.0.Final</quarkus.version>
-        <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
-        <gpg-plugin.version>1.6</gpg-plugin.version>
-    </properties>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.quarkus</groupId>
-                <artifactId>quarkus-bom</artifactId>
-                <version>${quarkus.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.quarkus</groupId>
+        <artifactId>quarkus-bom</artifactId>
+        <version>${quarkus.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
     <build>
         <pluginManagement>
             <plugins>
@@ -126,10 +163,6 @@
         </profile>
     </profiles>
 
-
-
-
-
     <distributionManagement>
         <site>
             <id>website</id>
@@ -144,4 +177,5 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
     </distributionManagement>
+
 </project>
