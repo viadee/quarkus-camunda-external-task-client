@@ -1,4 +1,4 @@
-# quarkus-camunda-external-task-example Project
+# quarkus-camunda-external-task-example
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 

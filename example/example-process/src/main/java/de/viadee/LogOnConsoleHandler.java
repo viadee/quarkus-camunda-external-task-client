@@ -9,8 +9,8 @@ import org.camunda.bpm.client.task.ExternalTaskService;
 import javax.enterprise.context.ApplicationScoped;
 import java.util.logging.Logger;
 
-@ExternalTaskSubscription(topicName = "LogOnConsole")
 @ApplicationScoped
+@ExternalTaskSubscription(topicName = "LogOnConsole")
 public class LogOnConsoleHandler implements ExternalTaskHandler {
 
     private static final Logger LOG = Logger.getLogger(LogOnConsoleHandler.class.getName());
