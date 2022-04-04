@@ -17,7 +17,7 @@ public class LogOnConsoleHandler implements ExternalTaskHandler {
 
     @Override
     public void execute(ExternalTask externalTask, ExternalTaskService externalTaskService) {
-        LOG.info("Das ist ein Quarkus-ExternalTaskHandler");
+        LOG.info("This is an external task handler logging to the console");
         externalTaskService.complete(externalTask);
     }
 }
