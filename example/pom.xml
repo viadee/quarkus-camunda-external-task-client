@@ -19,7 +19,7 @@
     </properties>
 
   <modules>
-    <module>example-process</module>
+    <module>example-worker</module>
     <module>example-engine</module>
   </modules>
 

@@ -7,8 +7,8 @@
     <groupId>de.viadee</groupId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>quarkus-camunda-external-task-client-example-process</artifactId>
-  <name>Quarkus Camunda External Task Client - Process</name>
+  <artifactId>quarkus-camunda-external-task-client-example-worker</artifactId>
+  <name>Quarkus Camunda External Task Client - Worker</name>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
