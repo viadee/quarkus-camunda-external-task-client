@@ -1,4 +1,4 @@
-name: Build & Publish to GCP
+name: Build & Publish Example Engine to GPC
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build with Maven
-        run: mvn -B package --file example/example-engine/pom.xml
+        run: mvn -B package --file example/pom.xml
       # Build the Docker image
       - name: Build
         working-directory: ./example/example-engine
