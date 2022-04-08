@@ -39,6 +39,7 @@ jobs:
         run: mvn -B package --file example/example-worker/pom.xml
       # Build the Docker image
       - name: Build
+        working-directory: ./example/example-worker
         run: |-
           docker build \
             --file example/example-worker/src/main/docker/Dockerfile.jvm \
