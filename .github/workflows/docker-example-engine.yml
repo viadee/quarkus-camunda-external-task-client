@@ -42,7 +42,7 @@ jobs:
         working-directory: ./example/example-engine
         run: |-
           docker build \
-            --file example/example-engine/src/main/docker/Dockerfile.jvm \
+            --file src/main/docker/Dockerfile.jvm \
             --tag "$IMAGE_URL:$GITHUB_SHA" \
             --build-arg GITHUB_SHA="$GITHUB_SHA" \
             --build-arg GITHUB_REF="$GITHUB_REF" \
