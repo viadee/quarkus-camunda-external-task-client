@@ -3,8 +3,7 @@ name: Build & Publish Example Engine to GPC
 on:
   push:
     branches:
-      - main
-      - develop
+      - demo
   workflow_dispatch:
 
 env:
@@ -12,7 +11,7 @@ env:
 
 jobs:
   setup-build-publish-deploy:
-    name: Setup, Build, Publish, and Deploy
+    name: Publish example worker
     runs-on: ubuntu-latest
 
     steps:
