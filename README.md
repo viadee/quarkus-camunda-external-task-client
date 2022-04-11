@@ -21,7 +21,7 @@ by [Camunda BPM](https://docs.camunda.org/manual/latest/user-guide/ext-client/).
 </dependency>
 ```
 
-2. Configure the `ExternalTaskClient` bean handling the overhead of external task subscriptions by extending your `application.properties`:
+2. Configure the `ExternalTaskClient` bean which handles the overhead of external task subscriptions by extending your `application.properties`:
 ```xml
 de.viadee.camunda.client.base-url=http://localhost:8080/engine-rest
 de.viadee.camunda.client.worker-id=my-worker
