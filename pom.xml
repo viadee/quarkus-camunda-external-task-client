@@ -83,6 +83,7 @@
         <quarkus.version>2.9.1.Final</quarkus.version>
         <camunda.version>7.17.0</camunda.version>
         <gpg-plugin.version>1.6</gpg-plugin.version>
+        <jandex-plugin.version>1.2.1</jandex-plugin.version>
 
     </properties>
     <dependencyManagement>
