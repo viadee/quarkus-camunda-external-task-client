@@ -17,7 +17,7 @@ by [Camunda BPM](https://docs.camunda.org/manual/latest/user-guide/ext-client/).
 <dependency>
     <groupId>de.viadee</groupId>
     <artifactId>quarkus-camunda-external-task-client</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.1</version>
 </dependency>
 ```
 
