@@ -1,12 +1,10 @@
 package de.viadee.camunda.extension;
 
 
-import io.quarkus.arc.Unremovable;
-import org.camunda.bpm.client.task.ExternalTaskHandler;
-import org.camunda.bpm.client.topic.TopicSubscriptionBuilder;
-
-import java.lang.annotation.*;
-import java.util.Map;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

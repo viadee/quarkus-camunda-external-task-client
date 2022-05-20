@@ -5,7 +5,7 @@
   <parent>
     <groupId>de.viadee</groupId>
     <artifactId>quarkus-camunda-external-task-client-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.0.1</version>
   </parent>
 
   <artifactId>quarkus-camunda-external-task-client</artifactId>
@@ -54,6 +54,19 @@
             </path>
           </annotationProcessorPaths>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jboss.jandex</groupId>
+        <artifactId>jandex-maven-plugin</artifactId>
+        <version>${jandex-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>make-index</id>
+            <goals>
+              <goal>jandex</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
