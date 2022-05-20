@@ -5,7 +5,7 @@
   <parent>
     <groupId>de.viadee</groupId>
     <artifactId>quarkus-camunda-external-task-client-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.0.1</version>
   </parent>
 
   <artifactId>quarkus-camunda-external-task-client</artifactId>
