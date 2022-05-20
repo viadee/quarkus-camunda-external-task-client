@@ -5,7 +5,7 @@
   <parent>
     <artifactId>quarkus-camunda-external-task-client-example</artifactId>
     <groupId>de.viadee</groupId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.0.1</version>
   </parent>
   <artifactId>quarkus-camunda-external-task-client-example-worker</artifactId>
   <name>Quarkus Camunda External Task Client - Worker</name>
@@ -18,7 +18,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.3.0.Final</quarkus.platform.version>
+    <quarkus.platform.version>2.9.1.Final</quarkus.platform.version>
   </properties>
   <dependencyManagement>
     <dependencies>
