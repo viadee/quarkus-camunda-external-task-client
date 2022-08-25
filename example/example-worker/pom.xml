@@ -5,7 +5,7 @@
   <parent>
     <artifactId>quarkus-camunda-external-task-client-example</artifactId>
     <groupId>de.viadee</groupId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>quarkus-camunda-external-task-client-example-worker</artifactId>
   <name>Quarkus Camunda External Task Client - Worker</name>
@@ -43,7 +43,7 @@
     <dependency>
       <groupId>de.viadee</groupId>
       <artifactId>quarkus-camunda-external-task-client</artifactId>
-      <version>0.0.2-SNAPSHOT</version>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
